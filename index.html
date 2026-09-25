@@ -6,439 +6,1472 @@
 <title>NovaBank - Online Banking System</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif}
-body{background:#f3f6fb;color:#172033}
-button{cursor:pointer;border:0}
-.hidden{display:none!important}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
 
-/* AUTH */
-.auth{min-height:100vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#0b1f3a,#1769aa)}
-.auth-box{background:#fff;width:400px;padding:35px;border-radius:18px;box-shadow:0 20px 50px #0003}
-.logo{text-align:center;color:#1769aa;font-size:30px;font-weight:bold;margin-bottom:8px}
-.subtitle{text-align:center;color:#777;margin-bottom:25px}
-input,select,textarea{width:100%;padding:12px;margin-top:7px;border:1px solid #ddd;border-radius:8px;outline:none}
-.form-group{margin-bottom:16px}
-label{font-weight:bold}
-.btn{width:100%;padding:12px;border-radius:8px;background:#1769aa;color:#fff;font-size:15px}
-.btn:hover{background:#0d4f83}
-.link{text-align:center;margin-top:15px;color:#1769aa;cursor:pointer}
-.demo{text-align:center;color:#888;font-size:12px;margin-top:15px}
+body {
+    background: #f4f7fb;
+    color: #172033;
+}
+
+/* LOGIN */
+.login-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #0b1f3a, #1769aa);
+}
+
+.login-box {
+    background: white;
+    width: 400px;
+    padding: 40px;
+    border-radius: 18px;
+    box-shadow: 0 20px 50px rgba(0,0,0,.2);
+}
+
+.logo {
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    color: #1769aa;
+    margin-bottom: 10px;
+}
+
+.login-box p {
+    text-align: center;
+    color: #777;
+    margin-bottom: 30px;
+}
+
+.input-group {
+    margin-bottom: 18px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 7px;
+    font-weight: bold;
+}
+
+.input-group input,
+.input-group select {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+}
+
+.btn {
+    width: 100%;
+    padding: 13px;
+    border: none;
+    border-radius: 8px;
+    background: #1769aa;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #0d4f83;
+}
+
+.demo-text {
+    margin-top: 18px;
+    font-size: 13px;
+    color: #888;
+    text-align: center;
+}
 
 /* APP */
-.app{display:none}
-.sidebar{position:fixed;left:0;top:0;width:245px;height:100vh;background:#0b1f3a;color:#fff;padding:25px 15px}
-.bank-logo{text-align:center;font-size:25px;font-weight:bold;margin-bottom:30px}
-.nav{padding:13px 16px;margin:5px 0;border-radius:8px;cursor:pointer}
-.nav:hover,.nav.active{background:#1769aa}
-.logout{position:absolute;bottom:20px;width:calc(100% - 30px);background:#c0392b}
-.main{margin-left:245px;padding:30px}
-.topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:25px}
-.user{display:flex;align-items:center;gap:10px}
-.avatar{width:42px;height:42px;border-radius:50%;background:#1769aa;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:bold}
-.page{display:none}
-.page.active{display:block}
+.app {
+    display: none;
+}
 
-/* DASHBOARD */
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:22px}
-.card,.section{background:#fff;border-radius:14px;padding:22px;box-shadow:0 5px 18px #0000000d}
-.card h3{color:#777;font-size:14px;margin-bottom:10px}
-.balance{font-size:27px;font-weight:bold}
-.green{color:#159957}.red{color:#d63031}
-.actions{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-bottom:22px}
-.action{text-align:center;background:#fff;padding:20px;border-radius:12px;cursor:pointer;box-shadow:0 5px 15px #0000000d}
-.action:hover{transform:translateY(-2px)}
-.icon{font-size:27px;margin-bottom:8px}
+/* SIDEBAR */
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 250px;
+    height: 100vh;
+    background: #0b1f3a;
+    color: white;
+    padding: 25px 15px;
+}
+
+.bank-logo {
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.nav-item {
+    padding: 14px 18px;
+    margin: 6px 0;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.nav-item:hover,
+.nav-item.active {
+    background: #1769aa;
+}
+
+.logout {
+    position: absolute;
+    bottom: 25px;
+    width: calc(100% - 30px);
+    background: #c0392b;
+}
+
+/* MAIN */
+.main {
+    margin-left: 250px;
+    padding: 30px;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.topbar h1 {
+    font-size: 28px;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.avatar {
+    width: 42px;
+    height: 42px;
+    background: #2e132a;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+/* PAGES */
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
+
+/* CARDS */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,.06);
+}
+
+.card h3 {
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.balance {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.green {
+    color: #159957;
+}
+
+.red {
+    color: #d63031;
+}
+
+/* QUICK ACTIONS */
+.quick-actions {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.action {
+    background: pink;
+    padding: 20px;
+    text-align: center;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,.05);
+}
+
+.action:hover {
+    transform: translateY(-3px);
+}
+
+.action-icon {
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+/* SECTIONS */
+.section {
+    background: rgb(71, 101, 37);
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 25px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.section-header h2 {
+    font-size: 20px;
+}
 
 /* TABLE */
-table{width:100%;border-collapse:collapse;margin-top:15px}
-th,td{text-align:left;padding:13px;border-bottom:1px solid #eee}
-th{color:#777}
-.status{padding:5px 9px;border-radius:20px;font-size:12px}
-.completed{background:#dff5e7;color:#159957}
-.pending{background:#fff2cc;color:#a67c00}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
 
-/* FORMS */
-.form-box{max-width:650px}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:15px}
-.account-card{max-width:600px;background:linear-gradient(135deg,#12345b,#1769aa);color:white;border-radius:18px;padding:25px;margin-bottom:18px}
-.account-number{font-size:20px;letter-spacing:3px;margin:22px 0}
-.account-bottom{display:flex;justify-content:space-between}
+th,
+td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
 
-/* ADMIN */
-.admin-banner{background:linear-gradient(135deg,#162d50,#1769aa);color:#fff;padding:22px;border-radius:14px;margin-bottom:20px}
-.admin-actions{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-bottom:20px}
-.small-btn{padding:8px 12px;border-radius:6px;background:#1769aa;color:#fff}
-.danger{background:#c0392b}
+th {
+    color: #777;
+}
+
+.status {
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+.completed {
+    background: #5c294f;
+    color: #997f15;
+}
+
+.pending {
+    background: #624b2a;
+    color: #a67c00;
+}
+
+/* FORM */
+.form-container {
+    max-width: 650px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 7px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+/* ACCOUNT CARDS */
+.account-card {
+    background: linear-gradient(135deg, #12345b, #1769aa);
+    color: white;
+    border-radius: 18px;
+    padding: 25px;
+    margin-bottom: 20px;
+    max-width: 600px;
+}
+
+.account-number {
+    letter-spacing: 3px;
+    font-size: 20px;
+    margin: 25px 0;
+}
+
+.account-bottom {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* PROFILE */
+.profile-box {
+    max-width: 700px;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.big-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background:#17aa1e;
+    color: rgb(75, 42, 61);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+}
 
 /* RESPONSIVE */
-@media(max-width:900px){
- .sidebar{width:200px}.main{margin-left:200px}
- .cards{grid-template-columns:1fr}.actions{grid-template-columns:1fr 1fr}
+@media(max-width: 900px) {
+
+    .sidebar {
+        width: 200px;
+    }
+
+    .main {
+        margin-left: 200px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .quick-actions {
+        grid-template-columns: 1fr 1fr;
+    }
 }
-@media(max-width:650px){
- .sidebar{position:relative;width:100%;height:auto}.main{margin-left:0}
- .logout{position:static;width:100%}.form-row{grid-template-columns:1fr}
- .admin-actions{grid-template-columns:1fr}.topbar{align-items:flex-start;gap:15px}
+
+@media(max-width: 650px) {
+
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+    }
+
+    .logout {
+        position: static;
+        width: 100%;
+    }
+
+    .main {
+        margin-left: 0;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
 }
+
+/* ================= ADMIN MODULE ================= */
+.admin-app { display:none; min-height:100vh; background:#f4f7fb; }
+.admin-sidebar {
+    position:fixed; left:0; top:0; width:250px; height:100vh;
+    background:#172033; color:white; padding:25px 15px;
+}
+.admin-logo { font-size:25px; font-weight:bold; text-align:center; margin-bottom:35px; }
+.admin-nav {
+    padding:14px 18px; margin:6px 0; border-radius:8px; cursor:pointer;
+}
+.admin-nav:hover, .admin-nav.active { background:#1769aa; }
+.admin-main { margin-left:250px; padding:30px; }
+.admin-page { display:none; }
+.admin-page.active { display:block; }
+.admin-cards {
+    display:grid; grid-template-columns:repeat(4,1fr); gap:20px; margin-bottom:25px;
+}
+.admin-table-box {
+    background:white; border-radius:15px; padding:25px; margin-bottom:25px;
+    box-shadow:0 5px 20px rgba(0,0,0,.06); overflow-x:auto;
+}
+.admin-table { width:100%; border-collapse:collapse; }
+.admin-table th,.admin-table td { padding:14px; text-align:left; border-bottom:1px solid #eee; }
+.admin-table th { color:#777; }
+.admin-btn {
+    border:none; padding:8px 12px; border-radius:6px; cursor:pointer; color:white;
+    margin-right:5px;
+}
+.admin-approve { background:#159957; }
+.admin-reject { background:#d63031; }
+.admin-delete { background:#c0392b; }
+.admin-stat { font-size:28px; font-weight:bold; }
+.admin-topbar {
+    display:flex; justify-content:space-between; align-items:center; margin-bottom:30px;
+}
+.admin-logout {
+    background:#c0392b; color:white; padding:10px 16px; border-radius:8px;
+    cursor:pointer; border:none;
+}
+@media(max-width:900px) {
+    .admin-cards { grid-template-columns:1fr 1fr; }
+    .admin-sidebar { width:200px; }
+    .admin-main { margin-left:200px; }
+}
+@media(max-width:650px) {
+    .admin-sidebar { position:relative; width:100%; height:auto; }
+    .admin-main { margin-left:0; }
+    .admin-cards { grid-template-columns:1fr; }
+}
+
+
+/* APP STYLE */
+body{background:#eef2f7}
+.app-shell{max-width:430px;min-height:100vh;margin:0 auto;background:#f7f9fc;box-shadow:0 0 35px rgba(0,0,0,.12);position:relative}
+.app-topbar{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;background:#fff;position:sticky;top:0;z-index:20;border-bottom:1px solid #edf0f5}
+.app-brand{font-size:21px;font-weight:800}.app-avatar{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#111827;color:#fff;font-weight:700}
+.app-content{padding:16px 16px 90px}
+.app-actions{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin:14px 0 20px}
+.app-action{background:#fff;border:0;border-radius:16px;padding:11px 5px;text-align:center;font-size:11px;box-shadow:0 4px 14px rgba(15,23,42,.06)}
+.app-action span{display:block;font-size:20px;margin-bottom:5px}
+.app-bottom-nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(430px,100%);display:grid;grid-template-columns:repeat(5,1fr);background:#fff;border-top:1px solid #e8ebf0;padding:8px 5px;z-index:50}
+.app-bottom-nav button{border:0;background:none;font-size:10px;color:#64748b;cursor:pointer}.app-bottom-nav button.active{color:#111827;font-weight:800}
+.app-bottom-nav span{display:block;font-size:19px;margin-bottom:2px}
+.login-app{max-width:430px;margin:0 auto;min-height:100vh;background:#fff;padding:28px 20px}
+.login-logo{width:62px;height:62px;border-radius:20px;background:#111827;color:#fff;display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:900;margin-bottom:18px}
+@media(min-width:700px){.app-shell,.login-app{max-width:980px}.app-content{padding:24px 28px 100px}.app-bottom-nav{width:min(980px,100%)}}
+
 </style>
 </head>
 
 <body>
 
-<!-- AUTH -->
-<div class="auth" id="auth">
-  <div class="auth-box">
-    <div class="logo">🏦 NovaBank</div>
-    <p class="subtitle">Online Banking System</p>
+<!-- LOGIN PAGE -->
+<div class="login-page" id="loginPage">
 
-    <div id="loginForm">
-      <div class="form-group">
-        <label>Customer ID</label>
-        <input id="loginId" placeholder="Enter Customer ID">
-      </div>
-      <div class="form-group">
-        <label>Password</label>
-        <input id="loginPassword" type="password" placeholder="Enter Password">
-      </div>
-      <button class="btn" onclick="login()">Login</button>
-      <p class="link" onclick="showSignup()">New customer? Create account</p>
-      <p class="demo">Admin demo: admin / admin123</p>
-    </div>
+    <div class="login-box">
 
-    <div id="signupForm" class="hidden">
-      <div class="form-group">
-        <label>Full Name</label>
-        <input id="signupName" placeholder="Enter your name">
-      </div>
-      <div class="form-group">
-        <label>Customer ID</label>
-        <input id="signupId" placeholder="Create Customer ID">
-      </div>
-      <div class="form-group">
-        <label>Email</label>
-        <input id="signupEmail" type="email" placeholder="Enter email">
-      </div>
-      <div class="form-group">
-        <label>Password</label>
-        <input id="signupPassword" type="password" placeholder="Create password">
-      </div>
-      <button class="btn" onclick="signup()">Create Account</button>
-      <p class="link" onclick="showLogin()">Already registered? Login</p>
-    </div>
-  </div>
-</div>
+        <div class="logo">🏦 NovaBank</div>
 
-<!-- USER APP -->
-<div class="app" id="userApp">
-  <aside class="sidebar">
-    <div class="bank-logo">🏦 NovaBank</div>
-    <div class="nav active" onclick="showUserPage('dashboard',this)">🏠 Dashboard</div>
-    <div class="nav" onclick="showUserPage('accounts',this)">💳 My Accounts</div>
-    <div class="nav" onclick="showUserPage('transfer',this)">💸 Transfer Money</div>
-    <div class="nav" onclick="showUserPage('transactions',this)">📊 Transactions</div>
-    <div class="nav" onclick="showUserPage('bills',this)">🧾 Bill Payments</div>
-    <div class="nav" onclick="showUserPage('profile',this)">👤 Profile</div>
-    <div class="nav logout" onclick="logout()">🚪 Logout</div>
-  </aside>
+        <p>Secure Online Banking</p>
 
-  <main class="main">
-    <div class="topbar">
-      <div>
-        <h1 id="userTitle">Dashboard</h1>
-        <p>Welcome back, <span id="welcomeName">Customer</span> 👋</p>
-      </div>
-      <div class="user"><span>🔔</span><div class="avatar" id="userAvatar">C</div><b id="userName">Customer</b></div>
-    </div>
-
-    <section class="page active" id="udashboard">
-      <div class="cards">
-        <div class="card"><h3>Total Balance</h3><div class="balance" id="balance">₹1,25,450</div><small class="green">Account active</small></div>
-        <div class="card"><h3>Account Number</h3><div class="balance">XXXX 4521</div><small>Savings Account</small></div>
-        <div class="card"><h3>This Month Spending</h3><div class="balance" id="spending">₹0</div><small>Demo calculation</small></div>
-      </div>
-
-      <div class="actions">
-        <div class="action" onclick="showUserPage('transfer')"><div class="icon">💸</div><b>Send Money</b></div>
-        <div class="action" onclick="showUserPage('bills')"><div class="icon">🧾</div><b>Pay Bills</b></div>
-        <div class="action" onclick="showUserPage('accounts')"><div class="icon">💳</div><b>Accounts</b></div>
-        <div class="action" onclick="showUserPage('transactions')"><div class="icon">📄</div><b>Statement</b></div>
-      </div>
-
-      <div class="section">
-        <h2>Recent Transactions</h2>
-        <table><thead><tr><th>Description</th><th>Date</th><th>Type</th><th>Amount</th><th>Status</th></tr></thead>
-        <tbody id="recentTable"></tbody></table>
-      </div>
-    </section>
-
-    <section class="page" id="uaccounts">
-      <div class="section">
-        <h2>My Accounts</h2><br>
-        <div class="account-card">
-          <h3>Savings Account</h3><div class="account-number">XXXX XXXX 4521</div>
-          <div class="account-bottom"><div><small>Available Balance</small><h2 id="accountBalance">₹1,25,450</h2></div><div><small>IFSC</small><h3>NOVA0001234</h3></div></div>
+        <div class="input-group">
+            <label>Login Type</label>
+            <select id="loginRole">
+                <option value="user">User Login</option>
+                <option value="admin">Admin Login</option>
+            </select>
         </div>
-      </div>
-    </section>
 
-    <section class="page" id="utransfer">
-      <div class="section form-box">
-        <h2>Transfer Money</h2><br>
-        <div class="form-group"><label>Beneficiary Name</label><input id="beneficiary" placeholder="Enter beneficiary name"></div>
-        <div class="form-row">
-          <div class="form-group"><label>Account Number</label><input id="toAccount" placeholder="Account number"></div>
-          <div class="form-group"><label>IFSC Code</label><input id="ifsc" placeholder="IFSC code"></div>
+        <div class="input-group">
+            <label>Customer ID / Admin ID</label>
+            <input type="text" id="customerId" placeholder="Enter ID">
         </div>
-        <div class="form-group"><label>Amount</label><input id="transferAmount" type="number" placeholder="₹ Enter amount"></div>
-        <div class="form-group"><label>Remarks</label><textarea id="remarks" placeholder="Optional remarks"></textarea></div>
-        <button class="btn" onclick="transferMoney()">Transfer Money</button>
-      </div>
-    </section>
 
-    <section class="page" id="utransactions">
-      <div class="section">
-        <h2>Transaction History</h2>
-        <table><thead><tr><th>ID</th><th>Description</th><th>Date</th><th>Type</th><th>Amount</th><th>Status</th></tr></thead>
-        <tbody id="transactionTable"></tbody></table>
-      </div>
-    </section>
+        <div class="input-group">
+            <label>Password</label>
+            <input type="password" id="password" placeholder="Enter password">
+        </div>
 
-    <section class="page" id="ubills">
-      <div class="section form-box">
-        <h2>Bill Payments</h2><br>
-        <div class="form-group"><label>Bill Category</label><select id="billType"><option>Electricity</option><option>Water</option><option>Internet</option><option>Mobile Recharge</option><option>Gas</option></select></div>
-        <div class="form-group"><label>Consumer Number</label><input id="consumer" placeholder="Enter consumer number"></div>
-        <div class="form-group"><label>Amount</label><input id="billAmount" type="number" placeholder="₹ Enter amount"></div>
-        <button class="btn" onclick="payBill()">Pay Bill</button>
-      </div>
-    </section>
+        <button class="btn" onclick="login()">Login</button>
 
-    <section class="page" id="uprofile">
-      <div class="section form-box">
-        <h2>My Profile</h2><br>
-        <div class="form-group"><label>Full Name</label><input id="profileName"></div>
-        <div class="form-group"><label>Email</label><input id="profileEmail"></div>
-        <div class="form-group"><label>Customer ID</label><input id="profileId" disabled></div>
-        <button class="btn" onclick="saveProfile()">Save Changes</button>
-      </div>
-    </section>
-  </main>
+        <div class="demo-text">
+            User Demo: any ID / password<br>
+            Admin Demo: admin / admin123
+        </div>
+
+    </div>
 </div>
 
-<!-- ADMIN APP -->
-<div class="app" id="adminApp">
-  <aside class="sidebar">
-    <div class="bank-logo">👨‍💼 NovaBank Admin</div>
-    <div class="nav active" onclick="showAdminPage('adminDashboard',this)">📊 Dashboard</div>
-    <div class="nav" onclick="showAdminPage('usersPage',this)">👥 Manage Users</div>
-    <div class="nav" onclick="showAdminPage('adminTransactions',this)">💳 Transactions</div>
-    <div class="nav logout" onclick="logout()">🚪 Logout</div>
-  </aside>
 
-  <main class="main">
-    <div class="topbar">
-      <div><h1 id="adminTitle">Admin Dashboard</h1><p>NovaBank Administration</p></div>
-      <div class="user"><div class="avatar">A</div><b>Administrator</b></div>
+
+<!-- ================= ADMIN APPLICATION ================= -->
+<div class="admin-app" id="adminApp">
+    <div class="admin-sidebar">
+        <div class="admin-logo">🛡️ NovaBank Admin</div>
+
+        <div class="admin-nav active" onclick="showAdminPage('adminDashboard', this)">📊 Dashboard</div>
+        <div class="admin-nav" onclick="showAdminPage('adminUsers', this)">👥 Manage Users</div>
+        <div class="admin-nav" onclick="showAdminPage('adminTransactions', this)">💳 Transactions</div>
+        <div class="admin-nav" onclick="showAdminPage('adminLoans', this)">🏦 Loan Applications</div>
+        <div class="admin-nav" onclick="showAdminPage('adminAccounts', this)">📁 Accounts</div>
+        <div class="admin-nav" onclick="showAdminPage('adminReports', this)">📈 Reports</div>
+
+        <div class="admin-nav" style="background:#c0392b; margin-top:30px;" onclick="adminLogout()">🚪 Logout</div>
     </div>
 
-    <section class="page active" id="adminDashboard">
-      <div class="admin-banner"><h2>Welcome, Administrator 👋</h2><p>Manage customers, accounts and transactions.</p></div>
-      <div class="cards">
-        <div class="card"><h3>Registered Users</h3><div class="balance" id="userCount">0</div></div>
-        <div class="card"><h3>Transactions</h3><div class="balance" id="txnCount">0</div></div>
-        <div class="card"><h3>System Status</h3><div class="balance green">Active</div></div>
-      </div>
-    </section>
+    <div class="admin-main">
+        <div class="admin-topbar">
+            <div>
+                <h1 id="adminPageTitle">Admin Dashboard</h1>
+                <p>Welcome, Administrator 👋</p>
+            </div>
+            <b>ADMIN</b>
+        </div>
 
-    <section class="page" id="usersPage">
-      <div class="section">
-        <h2>Manage Users</h2>
-        <table><thead><tr><th>Name</th><th>Customer ID</th><th>Email</th><th>Action</th></tr></thead><tbody id="usersTable"></tbody></table>
-      </div>
-    </section>
+        <!-- ADMIN DASHBOARD -->
+        <div class="admin-page active" id="adminDashboard">
+            <div class="admin-cards">
+                <div class="card">
+                    <h3>Total Users</h3>
+                    <div class="admin-stat" id="userCount">4</div>
+                </div>
+                <div class="card">
+                    <h3>Total Accounts</h3>
+                    <div class="admin-stat">6</div>
+                </div>
+                <div class="card">
+                    <h3>Transactions</h3>
+                    <div class="admin-stat">128</div>
+                </div>
+                <div class="card">
+                    <h3>Pending Loans</h3>
+                    <div class="admin-stat" id="loanCount">3</div>
+                </div>
+            </div>
 
-    <section class="page" id="adminTransactions">
-      <div class="section">
-        <h2>All Transactions</h2>
-        <table><thead><tr><th>ID</th><th>Description</th><th>Customer</th><th>Amount</th><th>Status</th></tr></thead><tbody id="adminTxnTable"></tbody></table>
-      </div>
-    </section>
-  </main>
+            <div class="admin-table-box">
+                <h2>System Overview</h2><br>
+                <p>Admin can manage registered users, monitor transactions, review loan applications and view banking reports.</p>
+            </div>
+        </div>
+
+        <!-- USERS -->
+        <div class="admin-page" id="adminUsers">
+            <div class="admin-table-box">
+                <h2>Manage Users</h2><br>
+                <table class="admin-table" id="usersTable">
+                    <tr>
+                        <th>ID</th><th>Name</th><th>Email</th><th>Account</th><th>Status</th><th>Action</th>
+                    </tr>
+                    <tr>
+                        <td>2500032397</td><td>Saishashank</td><td>saishashank@example.com</td>
+                        <td>Savings</td><td>Active</td>
+                        <td><button class="admin-btn admin-delete" onclick="deleteUser(this)">Delete</button></td>
+                    </tr>
+                    <tr>
+                        <td>2500032401</td><td>Rahul</td><td>rahul@example.com</td>
+                        <td>Current</td><td>Active</td>
+                        <td><button class="admin-btn admin-delete" onclick="deleteUser(this)">Delete</button></td>
+                    </tr>
+                    <tr>
+                        <td>2500032402</td><td>Priya</td><td>priya@example.com</td>
+                        <td>Savings</td><td>Active</td>
+                        <td><button class="admin-btn admin-delete" onclick="deleteUser(this)">Delete</button></td>
+                    </tr>
+                    <tr>
+                        <td>2500032403</td><td>Arjun</td><td>arjun@example.com</td>
+                        <td>Savings</td><td>Blocked</td>
+                        <td><button class="admin-btn admin-delete" onclick="deleteUser(this)">Delete</button></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- TRANSACTIONS -->
+        <div class="admin-page" id="adminTransactions">
+            <div class="admin-table-box">
+                <h2>All Transactions</h2><br>
+                <table class="admin-table">
+                    <tr><th>Transaction ID</th><th>User</th><th>Type</th><th>Amount</th><th>Status</th></tr>
+                    <tr><td>TXN10234</td><td>Saishashank</td><td>Credit</td><td class="green">₹45,000</td><td>Completed</td></tr>
+                    <tr><td>TXN10233</td><td>Rahul</td><td>Debit</td><td class="red">₹2,499</td><td>Completed</td></tr>
+                    <tr><td>TXN10232</td><td>Priya</td><td>Debit</td><td class="red">₹1,240</td><td>Completed</td></tr>
+                    <tr><td>TXN10231</td><td>Arjun</td><td>Debit</td><td class="red">₹800</td><td>Pending</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- LOANS -->
+        <div class="admin-page" id="adminLoans">
+            <div class="admin-table-box">
+                <h2>Loan Applications</h2><br>
+                <table class="admin-table" id="loanTable">
+                    <tr><th>Application ID</th><th>User</th><th>Loan Type</th><th>Amount</th><th>Status</th><th>Action</th></tr>
+                    <tr>
+                        <td>LN1001</td><td>Saishashank</td><td>Education Loan</td><td>₹10,00,000</td>
+                        <td class="loan-status">Pending</td>
+                        <td>
+                            <button class="admin-btn admin-approve" onclick="approveLoan(this)">Approve</button>
+                            <button class="admin-btn admin-reject" onclick="rejectLoan(this)">Reject</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>LN1002</td><td>Rahul</td><td>Personal Loan</td><td>₹5,00,000</td>
+                        <td class="loan-status">Pending</td>
+                        <td>
+                            <button class="admin-btn admin-approve" onclick="approveLoan(this)">Approve</button>
+                            <button class="admin-btn admin-reject" onclick="rejectLoan(this)">Reject</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>LN1003</td><td>Priya</td><td>Home Loan</td><td>₹50,00,000</td>
+                        <td class="loan-status">Pending</td>
+                        <td>
+                            <button class="admin-btn admin-approve" onclick="approveLoan(this)">Approve</button>
+                            <button class="admin-btn admin-reject" onclick="rejectLoan(this)">Reject</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- ACCOUNTS -->
+        <div class="admin-page" id="adminAccounts">
+            <div class="admin-table-box">
+                <h2>Account Management</h2><br>
+                <table class="admin-table">
+                    <tr><th>Account No.</th><th>User</th><th>Type</th><th>Balance</th><th>Status</th></tr>
+                    <tr><td>XXXX XXXX 4521</td><td>Saishashank</td><td>Savings</td><td>₹1,25,450</td><td>Active</td></tr>
+                    <tr><td>XXXX XXXX 7823</td><td>Saishashank</td><td>Current</td><td>₹23,300</td><td>Active</td></tr>
+                    <tr><td>XXXX XXXX 9012</td><td>Rahul</td><td>Savings</td><td>₹78,200</td><td>Active</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- REPORTS -->
+        <div class="admin-page" id="adminReports">
+            <div class="admin-cards">
+                <div class="card"><h3>Total Deposits</h3><div class="admin-stat">₹89.6 L</div></div>
+                <div class="card"><h3>Total Transfers</h3><div class="admin-stat">₹18.4 L</div></div>
+                <div class="card"><h3>Bill Payments</h3><div class="admin-stat">₹4.2 L</div></div>
+                <div class="card"><h3>Loan Requests</h3><div class="admin-stat">12</div></div>
+            </div>
+            <div class="admin-table-box">
+                <h2>Monthly Report</h2><br>
+                <p>Users and transactions can be monitored from the administrator dashboard.</p>
+            </div>
+        </div>
+    </div>
 </div>
+
+
+<!-- BANKING APPLICATION -->
+<div class="app" id="app">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+
+        <div class="bank-logo">
+            🏦 NovaBank
+        </div>
+
+        <div class="nav-item active" onclick="showPage('dashboard', this)">
+            🏠 Dashboard
+        </div>
+
+        <div class="nav-item" onclick="showPage('accounts', this)">
+            💳 My Accounts
+        </div>
+
+        <div class="nav-item" onclick="showPage('transfer', this)">
+            💸 Transfer Money
+        </div>
+
+        <div class="nav-item" onclick="showPage('transactions', this)">
+            📊 Transactions
+        </div>
+
+        <div class="nav-item" onclick="showPage('bills', this)">
+            🧾 Bill Payments
+        </div>
+
+        <div class="nav-item" onclick="showPage('loans', this)">
+            🏦 Loans
+        </div>
+
+        <div class="nav-item" onclick="showPage('profile', this)">
+            👤 Profile
+        </div>
+
+        <div class="nav-item logout" onclick="logout()">
+            🚪 Logout
+        </div>
+
+    </div>
+
+
+    <!-- MAIN CONTENT -->
+    <div class="main">
+
+        <!-- TOPBAR -->
+        <div class="topbar">
+
+            <div>
+                <h1 id="pageTitle">Dashboard</h1>
+                <p>Welcome back, Saishashank 👋</p>
+            </div>
+
+            <div class="user">
+                <span>🔔</span>
+                <div class="avatar">SG</div>
+                <b>Saishashank</b>
+            </div>
+
+        </div>
+
+
+        <!-- DASHBOARD -->
+        <div class="page active" id="dashboard">
+
+            <div class="cards">
+
+                <div class="card">
+                    <h3>Total Balance</h3>
+                    <div class="balance">₹89,60,750</div>
+                    <small class="green">+5.2% this month</small>
+                </div>
+
+                <div class="card">
+                    <h3>Available Balance</h3>
+                    <div class="balance">₹21,42,300</div>
+                    <small>After pending transactions</small>
+                </div>
+
+                <div class="card">
+                    <h3>This Month Spending</h3>
+                    <div class="balance">₹18,450</div>
+                    <small class="red">+8.4% from last month</small>
+                </div>
+
+            </div>
+
+
+            <div class="quick-actions">
+
+                <div class="action" onclick="showPage('transfer')">
+                    <div class="action-icon">💸</div>
+                    <b>Send Money</b>
+                </div>
+
+                <div class="action" onclick="showPage('bills')">
+                    <div class="action-icon">🧾</div>
+                    <b>Pay Bills</b>
+                </div>
+
+                <div class="action" onclick="showPage('accounts')">
+                    <div class="action-icon">💳</div>
+                    <b>Accounts</b>
+                </div>
+
+                <div class="action" onclick="showPage('transactions')">
+                    <div class="action-icon">📄</div>
+                    <b>Statement</b>
+                </div>
+
+            </div>
+
+
+            <div class="section">
+
+                <div class="section-header">
+                    <h2>Recent Transactions</h2>
+                    <button onclick="showPage('transactions')">
+                        View All
+                    </button>
+                </div>
+
+                <table>
+
+                    <tr>
+                        <th>Description</th>
+                        <th>Date</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                    </tr>
+
+                    <tr>
+                        <td>Amazon Purchase</td>
+                        <td>28 Aug 2026</td>
+                        <td class="red">- ₹2,499</td>
+                        <td><span class="status completed">Completed</span></td>
+                    </tr>
+
+                    <tr>
+                        <td>Salary Credit</td>
+                        <td>27 Aug 2026</td>
+                        <td class="green">+ ₹45,000</td>
+                        <td><span class="status completed">Completed</span></td>
+                    </tr>
+
+                    <tr>
+                        <td>Electricity Bill</td>
+                        <td>25 Aug 2026</td>
+                        <td class="red">- ₹1,240</td>
+                        <td><span class="status completed">Completed</span></td>
+                    </tr>
+
+                    <tr>
+                        <td>UPI Transfer</td>
+                        <td>24 Aug 2026</td>
+                        <td class="red">- ₹800</td>
+                        <td><span class="status pending">Pending</span></td>
+                    </tr>
+
+                </table>
+
+            </div>
+
+        </div>
+
+
+        <!-- ACCOUNTS -->
+        <div class="page" id="accounts">
+
+            <div class="section">
+
+                <h2>My Accounts</h2>
+                <br>
+
+                <div class="account-card">
+
+                    <h3>Savings Account</h3>
+
+                    <div class="account-number">
+                        XXXX XXXX 4521
+                    </div>
+
+                    <div class="account-bottom">
+
+                        <div>
+                            <small>Available Balance</small>
+                            <h2>₹1,25,450</h2>
+                        </div>
+
+                        <div>
+                            <small>IFSC</small>
+                            <h3>NOVA0001234</h3>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="account-card">
+
+                    <h3>Current Account</h3>
+
+                    <div class="account-number">
+                        XXXX XXXX 7823
+                    </div>
+
+                    <div class="account-bottom">
+
+                        <div>
+                            <small>Available Balance</small>
+                            <h2>₹23,300</h2>
+                        </div>
+
+                        <div>
+                            <small>IFSC</small>
+                            <h3>NOVA0001234</h3>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- TRANSFER -->
+        <div class="page" id="transfer">
+
+            <div class="section form-container">
+
+                <h2>Transfer Money</h2>
+                <br>
+
+                <div class="form-group">
+
+                    <label>From Account</label>
+
+                    <select>
+                        <option>Savings Account - ₹1,25,450</option>
+                        <option>Current Account - ₹23,300</option>
+                    </select>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Beneficiary Name</label>
+
+                    <input id="beneficiary" type="text"
+                           placeholder="Gayathri">
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Account Number</label>
+
+                    <input type="text"
+                           placeholder="2500031895">
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>IFSC Code</label>
+
+                    <input type="text"
+                           placeholder="Enter IFSC code">
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Amount</label>
+
+                    <input id="transferAmount"
+                           type="number"
+                           placeholder="₹ 100000">
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Remarks</label>
+
+                    <textarea placeholder="Optional remarks"></textarea>
+
+                </div>
+
+                <button class="btn" onclick="transferMoney()">
+                    Transfer Money
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- TRANSACTIONS -->
+        <div class="page" id="transactions">
+
+            <div class="section">
+
+                <div class="section-header">
+
+                    <h2>Transaction History</h2>
+
+                    <select>
+                        <option>All Transactions</option>
+                        <option>Credit</option>
+                        <option>Debit</option>
+                    </select>
+
+                </div>
+
+                <table>
+
+                    <tr>
+                        <th>Transaction ID</th>
+                        <th>Description</th>
+                        <th>Date</th>
+                        <th>Type</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                    </tr>
+
+                    <tr>
+                        <td>#TXN10234</td>
+                        <td>Salary Credit</td>
+                        <td>27 Aug 2026</td>
+                        <td class="green">Credit</td>
+                        <td class="green">+₹45,000</td>
+                        <td><span class="status completed">Completed</span></td>
+                    </tr>
+
+                    <tr>
+                        <td>#TXN10233</td>
+                        <td>Amazon Purchase</td>
+                        <td>28 Aug 2026</td>
+                        <td class="red">Debit</td>
+                        <td class="red">-₹2,499</td>
+                        <td><span class="status completed">Completed</span></td>
+                    </tr>
+
+                    <tr>
+                        <td>#TXN10232</td>
+                        <td>Electricity Bill</td>
+                        <td>25 Aug 2026</td>
+                        <td class="red">Debit</td>
+                        <td class="red">-₹1,240</td>
+                        <td><span class="status completed">Completed</span></td>
+                    </tr>
+
+                    <tr>
+                        <td>#TXN10231</td>
+                        <td>UPI Transfer</td>
+                        <td>24 Aug 2026</td>
+                        <td class="red">Debit</td>
+                        <td class="red">-₹800</td>
+                        <td><span class="status pending">Pending</span></td>
+                    </tr>
+
+                </table>
+
+            </div>
+
+        </div>
+
+
+        <!-- BILLS -->
+        <div class="page" id="bills">
+
+            <div class="section form-container">
+
+                <h2>Bill Payments</h2>
+                <br>
+
+                <div class="form-group">
+
+                    <label>Bill Category</label>
+
+                    <select>
+                        <option>Electricity</option>
+                        <option>Water</option>
+                        <option>Internet</option>
+                        <option>Mobile Recharge</option>
+                        <option>Gas</option>
+                    </select>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Consumer / Account Number</label>
+
+                    <input type="text"
+                           placeholder="Enter consumer number">
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Amount</label>
+
+                    <input type="number"
+                           placeholder="₹ Enter amount">
+
+                </div>
+
+                <button class="btn" onclick="payBill()">
+                    Pay Bill
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- LOANS -->
+        <div class="page" id="loans">
+
+            <div class="cards">
+
+                <div class="card">
+                    <h3>Personal Loan</h3>
+                    <div class="balance">₹5,00,000</div>
+                    <p>Up to 5 years</p>
+                    <br>
+                    <button class="btn" onclick="applyLoan('Personal Loan')">
+                        Apply
+                    </button>
+                </div>
+
+                <div class="card">
+                    <h3>Education Loan</h3>
+                    <div class="balance">₹10,00,000</div>
+                    <p>Flexible repayment</p>
+                    <br>
+                    <button class="btn" onclick="applyLoan('Education Loan')">
+                        Apply
+                    </button>
+                </div>
+
+                <div class="card">
+                    <h3>Home Loan</h3>
+                    <div class="balance">₹50,00,000</div>
+                    <p>Low interest rates</p>
+                    <br>
+                    <button class="btn" onclick="applyLoan('Home Loan')">
+                        Apply
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- PROFILE -->
+        <div class="page" id="profile">
+
+            <div class="section profile-box">
+
+                <div class="profile-header">
+
+                    <div class="big-avatar">
+                        A
+                    </div>
+
+                    <div>
+                        <h2>Saishashank</h2>
+                        <p>Customer ID: 2500032397</p>
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input value="Saishashank">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input value="saishashankdudi@gmail.com">
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label>Mobile Number</label>
+                        <input value="+91 8328235006">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Date of Birth</label>
+                        <input value="13/03/2006">
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <label>Address</label>
+                    <textarea>Hyderabad, Telangana, India</textarea>
+                </div>
+
+                <button class="btn" onclick="saveProfile()">
+                    Save Changes
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
 
 <script>
-/* ---------- LOCAL STORAGE DATA ---------- */
-const defaultTransactions = [
-  {id:"TXN1001",desc:"Salary Credit",date:"25 Sep 2026",type:"Credit",amount:45000,status:"Completed"},
-  {id:"TXN1002",desc:"Amazon Purchase",date:"24 Sep 2026",type:"Debit",amount:2499,status:"Completed"}
-];
 
-function getUsers(){return JSON.parse(localStorage.getItem("novaUsers")||"[]")}
-function saveUsers(users){localStorage.setItem("novaUsers",JSON.stringify(users))}
-function getTxns(){return JSON.parse(localStorage.getItem("novaTransactions")||"[]")}
-function saveTxns(txns){localStorage.setItem("novaTransactions",JSON.stringify(txns))}
+/* LOGIN */
 
-if(!localStorage.getItem("novaTransactions")) saveTxns(defaultTransactions);
+function login() {
 
-/* ---------- AUTH ---------- */
-function showSignup(){
-  document.getElementById("loginForm").classList.add("hidden");
-  document.getElementById("signupForm").classList.remove("hidden");
+    const customer = document.getElementById("customerId").value.trim();
+    const password = document.getElementById("password").value;
+    const role = document.getElementById("loginRole").value;
+
+    if(customer === "" || password === "") {
+        alert("Please enter ID and Password.");
+        return;
+    }
+
+    /* Admin Login */
+    if(role === "admin") {
+        if(customer === "admin" && password === "admin123") {
+            localStorage.setItem("novaBankRole", "admin");
+            document.getElementById("loginPage").style.display = "none";
+            document.getElementById("app").style.display = "none";
+            document.getElementById("adminApp").style.display = "block";
+        } else {
+            alert("Invalid Admin ID or Password.\nDemo: admin / admin123");
+        }
+        return;
+    }
+
+    /* User Login */
+    localStorage.setItem("novaBankRole", "user");
+    localStorage.setItem("novaBankUser", customer);
+
+    document.getElementById("loginPage").style.display = "none";
+    document.getElementById("adminApp").style.display = "none";
+    document.getElementById("app").style.display = "block";
 }
-function showLogin(){
-  document.getElementById("signupForm").classList.add("hidden");
-  document.getElementById("loginForm").classList.remove("hidden");
-}
-function signup(){
-  const name=signupName.value.trim(), id=signupId.value.trim(), email=signupEmail.value.trim(), password=signupPassword.value;
-  if(!name||!id||!email||!password) return alert("Please fill all fields.");
-  const users=getUsers();
-  if(users.some(u=>u.id===id)) return alert("Customer ID already exists.");
-  users.push({name,id,email,password,balance:125450});
-  saveUsers(users);
-  alert("Account created successfully! You can now login.");
-  showLogin();
-  document.getElementById("loginId").value=id;
-}
-function login(){
-  const id=loginId.value.trim(), password=loginPassword.value;
-  if(!id||!password) return alert("Enter Customer ID and Password.");
 
-  if(id==="admin" && password==="admin123"){
-    openAdmin();
-    return;
+
+/* LOGOUT */
+
+function logout() {
+    localStorage.removeItem("novaBankRole");
+    localStorage.removeItem("novaBankUser");
+
+    document.getElementById("app").style.display = "none";
+    document.getElementById("adminApp").style.display = "none";
+    document.getElementById("loginPage").style.display = "flex";
+
+    document.getElementById("customerId").value = "";
+    document.getElementById("password").value = "";
+}
+
+function adminLogout() {
+    logout();
+}
+
+function showAdminPage(pageId, element) {
+    const pages = document.querySelectorAll(".admin-page");
+    pages.forEach(page => page.classList.remove("active"));
+
+    document.getElementById(pageId).classList.add("active");
+
+    const navItems = document.querySelectorAll(".admin-nav");
+    navItems.forEach(item => item.classList.remove("active"));
+
+    if(element) element.classList.add("active");
+
+    const titles = {
+        adminDashboard: "Admin Dashboard",
+        adminUsers: "Manage Users",
+        adminTransactions: "Transactions",
+        adminLoans: "Loan Applications",
+        adminAccounts: "Account Management",
+        adminReports: "Reports"
+    };
+
+    document.getElementById("adminPageTitle").innerText = titles[pageId];
+}
+
+function deleteUser(button) {
+    if(confirm("Are you sure you want to delete this user?")) {
+        button.closest("tr").remove();
+        updateUserCount();
+        alert("User deleted successfully.");
+    }
+}
+
+function updateUserCount() {
+    const rows = document.querySelectorAll("#usersTable tr");
+    document.getElementById("userCount").innerText = rows.length - 1;
+}
+
+function approveLoan(button) {
+    const row = button.closest("tr");
+    row.querySelector(".loan-status").innerText = "Approved";
+    button.disabled = true;
+    button.nextElementSibling.disabled = true;
+    updateLoanCount();
+    alert("Loan application approved.");
+}
+
+function rejectLoan(button) {
+    const row = button.closest("tr");
+    row.querySelector(".loan-status").innerText = "Rejected";
+    button.disabled = true;
+    button.previousElementSibling.disabled = true;
+    updateLoanCount();
+    alert("Loan application rejected.");
+}
+
+function updateLoanCount() {
+    const pending = document.querySelectorAll("#loanTable .loan-status");
+    let count = 0;
+    pending.forEach(item => {
+        if(item.innerText === "Pending") count++;
+    });
+    document.getElementById("loanCount").innerText = count;
+}
+
+
+/* PAGE NAVIGATION */
+
+function showPage(pageId, element) {
+
+    const pages = document.querySelectorAll(".page");
+
+    pages.forEach(page => {
+        page.classList.remove("active");
+    });
+
+    document.getElementById(pageId).classList.add("active");
+
+
+    const navItems = document.querySelectorAll(".nav-item");
+
+    navItems.forEach(item => {
+        item.classList.remove("active");
+    });
+
+    if(element) {
+        element.classList.add("active");
+    }
+
+
+    const titles = {
+
+        dashboard: "Dashboard",
+        accounts: "My Accounts",
+        transfer: "Transfer Money",
+        transactions: "Transactions",
+        bills: "Bill Payments",
+        loans: "Loans",
+        profile: "Profile"
+
+    };
+
+    document.getElementById("pageTitle").innerText =
+        titles[pageId];
+
+}
+
+
+/* TRANSFER */
+
+function transferMoney() {
+
+    const beneficiary =
+        document.getElementById("beneficiary").value;
+
+    const amount =
+        document.getElementById("transferAmount").value;
+
+    if(beneficiary === "" || amount === "") {
+
+        alert("Please fill all required fields.");
+
+        return;
+    }
+
+    if(amount <= 0) {
+
+        alert("Enter a valid amount.");
+
+        return;
+    }
+
+    alert(
+        "Transfer Successful!\\n\\n" +
+        "Beneficiary: " + beneficiary +
+        "\\nAmount: ₹" + amount +
+        "\\nTransaction ID: TXN" +
+        Math.floor(Math.random() * 90000 + 10000)
+    );
+
+}
+
+
+/* BILL PAYMENT */
+
+function payBill() {
+
+    alert(
+        "Bill payment initiated successfully!\\n\\n" +
+        "This is a demo transaction."
+    );
+
+}
+
+
+/* LOAN */
+
+function applyLoan(type) {
+
+    alert(
+        "Loan Application\\n\\n" +
+        type +
+        "\\n\\nYour application has been submitted successfully."
+    );
+
+}
+
+
+/* PROFILE */
+
+function saveProfile() {
+
+    alert(
+        "Profile updated successfully!"
+    );
+
+}
+
+
+/* Restore previous login session */
+window.addEventListener("load", function() {
+    const role = localStorage.getItem("novaBankRole");
+
+    if(role === "admin") {
+        document.getElementById("loginPage").style.display = "none";
+        document.getElementById("app").style.display = "none";
+        document.getElementById("adminApp").style.display = "block";
+    } else if(role === "user") {
+        document.getElementById("loginPage").style.display = "none";
+        document.getElementById("adminApp").style.display = "none";
+        document.getElementById("app").style.display = "block";
+    }
+});
+
+
+function setBottomActive(btn){
+  document.querySelectorAll('#userBottomNav button').forEach(function(b){b.classList.remove('active')});
+  if(btn) btn.classList.add('active');
+}
+function updateAppAvatar(){
+  var avatar=document.getElementById('appAvatar');
+  if(avatar){
+    var u=localStorage.getItem('novaBankUser') || 'Saishashank';
+    avatar.textContent=u.charAt(0).toUpperCase();
   }
-
-  const user=getUsers().find(u=>u.id===id && u.password===password);
-  if(!user) return alert("Invalid Customer ID or Password.");
-  localStorage.setItem("loggedUser",id);
-  openUser(user);
 }
-function logout(){
-  localStorage.removeItem("loggedUser");
-  document.getElementById("userApp").style.display="none";
-  document.getElementById("adminApp").style.display="none";
-  document.getElementById("auth").style.display="flex";
-  showLogin();
-}
-function openUser(user){
-  auth.style.display="none"; adminApp.style.display="none"; userApp.style.display="block";
-  userName.textContent=user.name; welcomeName.textContent=user.name;
-  userAvatar.textContent=user.name.charAt(0).toUpperCase();
-  profileName.value=user.name; profileEmail.value=user.email; profileId.value=user.id;
-  updateUserUI();
-}
-function openAdmin(){
-  auth.style.display="none"; userApp.style.display="none"; adminApp.style.display="block";
-  updateAdminUI();
-}
+document.addEventListener('DOMContentLoaded',updateAppAvatar);
 
-/* ---------- USER NAVIGATION ---------- */
-function showUserPage(id,el){
-  document.querySelectorAll("#userApp .page").forEach(p=>p.classList.remove("active"));
-  document.getElementById("u"+id).classList.add("active");
-  document.querySelectorAll("#userApp .nav").forEach(n=>n.classList.remove("active"));
-  if(el) el.classList.add("active");
-  const titles={dashboard:"Dashboard",accounts:"My Accounts",transfer:"Transfer Money",transactions:"Transactions",bills:"Bill Payments",profile:"Profile"};
-  userTitle.textContent=titles[id];
-  updateUserUI();
-}
-
-/* ---------- USER FUNCTIONS ---------- */
-function currentUser(){
-  return getUsers().find(u=>u.id===localStorage.getItem("loggedUser"));
-}
-function updateUserUI(){
-  const user=currentUser();
-  if(!user)return;
-  balance.textContent="₹"+Number(user.balance).toLocaleString("en-IN");
-  accountBalance.textContent="₹"+Number(user.balance).toLocaleString("en-IN");
-
-  const txns=getTxns();
-  transactionTable.innerHTML=txns.map(t=>`
-    <tr><td>#${t.id}</td><td>${t.desc}</td><td>${t.date}</td>
-    <td class="${t.type==="Credit"?"green":"red"}">${t.type}</td>
-    <td class="${t.type==="Credit"?"green":"red"}">${t.type==="Credit"?"+":"-"}₹${Number(t.amount).toLocaleString("en-IN")}</td>
-    <td><span class="status ${t.status==="Completed"?"completed":"pending"}">${t.status}</span></td></tr>`).join("");
-
-  recentTable.innerHTML=txns.slice(-5).reverse().map(t=>`
-    <tr><td>${t.desc}</td><td>${t.date}</td><td>${t.type}</td>
-    <td class="${t.type==="Credit"?"green":"red"}">${t.type==="Credit"?"+":"-"}₹${Number(t.amount).toLocaleString("en-IN")}</td>
-    <td><span class="status completed">${t.status}</span></td></tr>`).join("");
-}
-function transferMoney(){
-  const user=currentUser(), name=beneficiary.value.trim(), amount=Number(transferAmount.value);
-  if(!name||!amount) return alert("Enter beneficiary and amount.");
-  if(amount<=0) return alert("Enter a valid amount.");
-  if(amount>user.balance) return alert("Insufficient balance.");
-
-  user.balance-=amount;
-  const users=getUsers().map(u=>u.id===user.id?user:u);
-  saveUsers(users);
-
-  const txns=getTxns();
-  txns.push({id:"TXN"+Math.floor(Math.random()*90000+10000),desc:"Transfer to "+name,date:new Date().toLocaleDateString("en-GB"),type:"Debit",amount,status:"Completed"});
-  saveTxns(txns);
-
-  alert("Transfer successful!");
-  beneficiary.value=""; transferAmount.value=""; toAccount.value=""; ifsc.value=""; remarks.value="";
-  updateUserUI();
-}
-function payBill(){
-  const user=currentUser(), type=billType.value, amount=Number(billAmount.value);
-  if(!consumer.value||!amount) return alert("Enter consumer number and amount.");
-  if(amount<=0||amount>user.balance) return alert("Invalid amount or insufficient balance.");
-
-  user.balance-=amount;
-  saveUsers(getUsers().map(u=>u.id===user.id?user:u));
-
-  const txns=getTxns();
-  txns.push({id:"TXN"+Math.floor(Math.random()*90000+10000),desc:type+" Bill",date:new Date().toLocaleDateString("en-GB"),type:"Debit",amount,status:"Completed"});
-  saveTxns(txns);
-
-  alert("Bill payment successful!");
-  consumer.value=""; billAmount.value="";
-  updateUserUI();
-}
-function saveProfile(){
-  const user=currentUser();
-  user.name=profileName.value.trim();
-  user.email=profileEmail.value.trim();
-  saveUsers(getUsers().map(u=>u.id===user.id?user:u));
-  openUser(user);
-  alert("Profile updated successfully!");
-}
-
-/* ---------- ADMIN ---------- */
-function showAdminPage(id,el){
-  document.querySelectorAll("#adminApp .page").forEach(p=>p.classList.remove("active"));
-  document.getElementById(id).classList.add("active");
-  document.querySelectorAll("#adminApp .nav").forEach(n=>n.classList.remove("active"));
-  if(el)el.classList.add("active");
-  adminTitle.textContent=id==="adminDashboard"?"Admin Dashboard":id==="usersPage"?"Manage Users":"Transactions";
-  updateAdminUI();
-}
-function updateAdminUI(){
-  const users=getUsers(), txns=getTxns();
-  userCount.textContent=users.length; txnCount.textContent=txns.length;
-
-  usersTable.innerHTML=users.length?users.map(u=>`
-    <tr><td>${u.name}</td><td>${u.id}</td><td>${u.email}</td>
-    <td><button class="small-btn danger" onclick="deleteUser('${u.id}')">Delete</button></td></tr>`).join("")
-    :"<tr><td colspan='4'>No registered users.</td></tr>";
-
-  adminTxnTable.innerHTML=txns.length?txns.map(t=>`
-    <tr><td>${t.id}</td><td>${t.desc}</td><td>Customer</td><td>₹${Number(t.amount).toLocaleString("en-IN")}</td><td>${t.status}</td></tr>`).join("")
-    :"<tr><td colspan='5'>No transactions.</td></tr>";
-}
-function deleteUser(id){
-  if(!confirm("Delete this user?"))return;
-  saveUsers(getUsers().filter(u=>u.id!==id));
-  updateAdminUI();
-}
-
-/* Start at login */
-showLogin();
 </script>
+
 </body>
 </html>
